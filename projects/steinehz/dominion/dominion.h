@@ -85,7 +85,7 @@ int initializeGame(int numPlayers, int kingdomCards[10], int randomSeed,
 		   struct gameState *state);
 /* Responsible for initializing all supplies, and shuffling deck and
    drawing starting hands for all players.  Check that 10 cards selected
-   are in fact (different) kingdom cards, and that numPlayers is valid. 
+   are in fact (different) kingdom cards, and that numPlayers is valid.
 
 Cards not in game should initialize supply position to -1 */
 
@@ -127,5 +127,20 @@ int scoreFor(int player, struct gameState *state);
 int getWinners(int players[MAX_PLAYERS], struct gameState *state);
 /* Set array position of each player who won (remember ties!) to
    1, others to 0 */
+
+void adventurer_action (int drawntreasure, struct gameState *state, int currentPlayer, int cardDrawn, int temphand[MAX_HAND], int z);
+//Does the actions of the adventurer card, searches your deck for better treasure
+
+void smithy_action (int currentPlayer, struct gameState *state, int i, int handPos);
+//Does the actions of the smithy card, adds three more cards to current hand
+
+void village_action (int currentPlayer, struct gameState *state, int handPos);
+//Does the actions of the village card, adds a card to current hand and adds two more actions to turn
+
+void council_room_action (int i, int currentPlayer, struct gameState *state);
+//Does the actions of the council room card, adds 4 cards to current hand, increases the buys of the current player and adds a new card to every other players card
+
+int mine_action (int j, struct gameState *state, int currentPlayer, int choice1, int choice2, int handPos, int i);
+//Does the actions of the mine, allows you to throw away a treasure and draw one up to 3 times more
 
 #endif
