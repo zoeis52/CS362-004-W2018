@@ -100,8 +100,8 @@ int main () {
                printf("Test Failed \n");
           }
 
-          printf("Test passed with input i: %d, and return value from getCost: %d \n", i, ret);
      }
+     printf("All tests passed!\n");
 
      return 0;
 }

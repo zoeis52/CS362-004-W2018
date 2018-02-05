@@ -17,21 +17,17 @@ int main () {
           g->handCount[i] = -1;
           r = numHandCards(g);
           assert(r == g->handCount[i]);
-          printf("Test passed! Expected number of cards: %d. Actual number of cards: %d\n", r, g->handCount[i]);
 
           g->handCount[i] = 4;
           r = numHandCards(g);
           assert(r == g->handCount[i]);
-          printf("Test passed! Expected number of cards: %d. Actual number of cards: %d\n", r, g->handCount[i]);
 
           randomCard = rand() % 100;
           g->handCount[i] = randomCard;
           r = numHandCards(g);
           assert(r == g->handCount[i]);
-          printf("Test passed! Expected number of cards: %d. Actual number of cards: %d\n", r, g->handCount[i]);
-
      }
-
+     printf("All tests passed! The expected number of cards and actual number always matched. \n");
 
      return 0;
 }

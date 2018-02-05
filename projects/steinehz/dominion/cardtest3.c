@@ -64,9 +64,7 @@ int main(){
 			if (handCount != g->handCount[i]) {
 			   printf("FAIL: Hand count after playing council_room was not correct. Expected %d, got %d\n", handCount, g->handCount[i]);
 			}
-			else {
-			   printf("PASS: Correct hand count after playing council_room (+4)\n");
-			}
+
 			//check to make sure council increased the buys
 			assert(numBuys == g->numBuys);
 
@@ -75,9 +73,6 @@ int main(){
 				if(j != i) {
 					if (g->handCount[j] != otherPlayersHand[j]) {
 					   printf("FAIL: Hand count after playing council_room was not correct. Expected %d, got %d\n", g->handCount[i], otherPlayersHand[j]);
-					}
-					else {
-					   printf("PASS: Correct hand count after playing council_room (+1 for everyone else)\n");
 					}
 				}
 			}

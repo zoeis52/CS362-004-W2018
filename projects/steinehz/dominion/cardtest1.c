@@ -41,9 +41,9 @@ int main() {
 			assert(ret == 0);
 			//check to make sure the handCount was updated
 			assert(handCount == g->handCount[i]);
-			printf("Test passed! Returned fine and 3 new cards were added\n");
 		}
 	}
+	printf("All tests passed! Returned fine and 3 new cards were added\n");
 
 	return 0;
 }

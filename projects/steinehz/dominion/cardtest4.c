@@ -46,9 +46,9 @@ int main() {
                assert(ret == 0);
                assert(handCount == g->handCount[i]);
                assert(numActions == g->numActions);
-               printf("Test passed! Returned fine and a new card was added and old was removed. Number of actions also right.\n");
           }
      }
+     printf("All tests passed! Returned fine and a new card was added and old was removed. Number of actions also right.\n");
 
 
      return 0;

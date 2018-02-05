@@ -29,85 +29,61 @@ int main () {
    if (test.handCount[0] != g.handCount[0] + drawn - discarded) {
       printf("FAIL: Hand count after playing adventurer was not correct. Expected %d, got %d\n", g.handCount[0] + drawn - discarded, test.handCount[0]);
    }
-   else {
-      printf("PASS: Correct hand count after playing adventurer (+2)\n");
-}
+
 
    //Test if the two cards taken were treasure cards
    if (test.hand[0][test.handCount[0]-1] != copper && test.hand[0][test.handCount[0]-1] != silver && test.hand[0][test.handCount[0]-1] != gold) {
       printf("FAIL: First card taken was not a treasure card\n");
    }
-   else {
-      printf("PASS: First card taken was a treasure card\n");
-   }
 
    if (test.hand[0][test.handCount[0]-2] != copper && test.hand[0][test.handCount[0]-2] != silver && test.hand[0][test.handCount[0]-2] != gold) {
       printf("FAIL: Second card taken was not a treasure card\n");
    }
-   else {
-      printf("PASS: Second card taken was a treasure card\n");
-   }
+
 
    //Test if the deckcount goes down by 2 for the 2 cards drawn
    if (test.deckCount[0] != g.deckCount[0] - drawn) {
       printf("FAIL: Deck count after playing adventurer was not correct. Expected %d, got %d\n", g.deckCount[0] - drawn, test.deckCount[0]);
-   }
-   else {
-      printf("PASS: Correct deck count after playing adventurer (-2)\n");
    }
 
    //Test if the score changed - it should be the same as before
    if (scoreFor(0, &test) != scoreFor(0, &g)) {
       printf("FAIL: Score after playing adventurer was not correct. Expected %d, got %d\n", scoreFor(0, &g), scoreFor(0, &test));
    }
-   else {
-      printf("PASS: Correct score after playing adventurer (no change)\n");
-   }
+
 
    //Test if the other player's state is the same - hand, deck, and score
    if (test.handCount[1] != g.handCount[1]) {
       printf("FAIL: Player 2's handcount changed after player 1 played adventurer. Expected %d, got %d\n", g.handCount[1], test.handCount[1]);
    }
-   else {
-      printf("PASS: Player 2's handcount unchanged after player 1 played adventurer\n");
-   }
+
 
    if (test.deckCount[1] != g.deckCount[1]) {
       printf("FAIL: Player 2's deckcount changed after player 1 played adventurer. Expected %d, got %d\n", g.deckCount[1], test.deckCount[1]);
    }
-   else {
-      printf("PASS: Player 2's deckcount unchanged after player 1 played adventurer\n");
-   }
+
 
    if (scoreFor(1, &test) != scoreFor(1, &g)) {
       printf("FAIL: Score for player 2 changed when player 1 played adventurer. Expected %d, got %d\n", scoreFor(1, &g), scoreFor(1, &test));
    }
-   else {
-      printf("PASS: Player 2's score unchanged after player 1 played adventurer\n");
-   }
+
 
 
    //Test if victory cards piles are the same
    if (test.supplyCount[estate] != g.supplyCount[estate]) {
       printf("FAIL: Number of estate cards differed. Expected %d, got %d\n", g.supplyCount[estate], test.supplyCount[estate]);
    }
-   else {
-      printf("PASS: Number of estate cards the same after playing adventurer\n");
-   }
+
 
    if (test.supplyCount[duchy] != g.supplyCount[duchy]) {
       printf("FAIL: Number of duchy cards differed. Expected %d, got %d\n", g.supplyCount[duchy], test.supplyCount[duchy]);
    }
-   else {
-      printf("PASS: Number of duchy cards the same after playing adventurer\n");
-   }
+
 
    if (test.supplyCount[province] != g.supplyCount[province]) {
       printf("FAIL: Number of province cards differed. Expected %d, got %d\n", g.supplyCount[province], test.supplyCount[province]);
    }
-   else {
-      printf("PASS: Number of province cards the same after playing adventurer\n");
-   }
+
 
 
    //Test if kingdom card piles are the same
@@ -115,9 +91,6 @@ int main () {
 
       if (test.supplyCount[allowed_cards[i]] != g.supplyCount[allowed_cards[i]]) {
 	 printf("FAIL: Kingdom card pile #%d did not contain the same number of cards\n", i);
-      }
-      else {
-	 printf("PASS: Kingdom card pile #%d contained the same number of cards as before\n", i);
       }
 
    }
