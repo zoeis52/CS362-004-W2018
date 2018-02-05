@@ -24,10 +24,23 @@ testAll: dominion.o testSuite.c
 interface.o: interface.h interface.c
 	gcc -c interface.c -g  $(CFLAGS)
 
-runtests: testDrawCard 
+runtests: testDrawCard
 	./testDrawCard &> unittestresult.out
 	gcov dominion.c >> unittestresult.out
 	cat dominion.c.gcov >> unittestresult.out
+
+unittestresults.out: unittest1.c unittest2.c unittest3.c unittest4.c cardtest1.c dominion.o rngs.o
+	gcc -o unittest1 unittest1.c -g dominion.o rngs.o $(CFLAGS)
+	gcc -o unittest2 unittest2.c -g dominion.o rngs.o $(CFLAGS)
+	gcc -o unittest3 unittest3.c -g dominion.o rngs.o $(CFLAGS)
+	gcc -o unittest4 unittest4.c -g dominion.o rngs.o $(CFLAGS)
+	gcc -o cardtest1 cardtest1.c -g dominion.o rngs.o $(CFLAGS)
+
+	./unittest1 >> unittestresult.out
+	./unittest2 >> unittestresult.out
+	./unittest3 >> unittestresult.out
+	./unittest4 >> unittestresult.out
+	./cardtest1 >> unittestresult.out
 
 
 player: player.c interface.o
