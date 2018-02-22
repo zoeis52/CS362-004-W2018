@@ -399,21 +399,21 @@
         -:  394:  //if stack of Province cards is empty, the game ends
      1002:  395:  if (state->supplyCount[province] == 0)
         -:  396:    {
-      109:  397:      return 1;
+      124:  397:      return 1;
         -:  398:    }
         -:  399:
         -:  400:  //if three supply pile are at 0, the game ends
-      893:  401:  j = 0;
-    23218:  402:  for (i = 0; i < 25; i++)
+      878:  401:  j = 0;
+    22828:  402:  for (i = 0; i < 25; i++)
         -:  403:    {
-    22325:  404:      if (state->supplyCount[i] == 0)
+    21950:  404:      if (state->supplyCount[i] == 0)
         -:  405:	{
-     2676:  406:	  j++;
+     2631:  406:	  j++;
         -:  407:	}
         -:  408:    }
-      893:  409:  if ( j >= 3)
+      878:  409:  if ( j >= 3)
         -:  410:    {
-      892:  411:      return 1;
+      877:  411:      return 1;
         -:  412:    }
         -:  413:
         1:  414:  return 0;
