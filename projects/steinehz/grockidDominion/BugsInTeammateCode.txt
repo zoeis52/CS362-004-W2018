@@ -1,0 +1,25 @@
+All tests ran on the flip ENGR server. Bugs were found by the failing print statemnets of each test. 
+
+Bug 1:
+
+	The first bug I found is in the smithy card. I found this bug because it broke an assert.
+		"handCount == g->handCount[i]"
+	After fixing the code so that there was no assert to fail, I found that the number of cards was always 1 more than it should have been.
+	This happened for all test cases.
+	Therefore smithy must be handing out too many cards to the player every time its action is run. 
+	Looking at the smithy code, it looks like a for loop was given the wrong number to count up to.
+
+Bug 2:
+	
+	The second bug is for the adventurer card. Both the unit test and random test for adventurer found issues with this card.
+	When unit test ran, found that handcount, deck count and score were all off. 
+	When random test ran, found the same issues and that the second card picked up was not a treasure card in some cases.
+
+Bug 3:
+	
+	The third bug is in council room. When that function is run it gets thrown into an infinite loop. 
+	This happens for both the unit and random test. Check all loops for this function. 
+
+Bug 4:
+	
+	The fourth bug is in great hall. The number of actions added after running great hall is incorrect every time.
