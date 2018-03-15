@@ -220,6 +220,22 @@ if(url1.isValid(s3)!= true){
 if(url1.isValid(s4)!= false){
 	System.out.println("http://256.256.256.256 should have failed and didn't");
 }
+
+		UrlValidator url2 = new UrlValidator(ALLOW_LOCAL_URLS);//should not have ftp valid
+		String s5 = "http://localhost:80/test1";
+		String s6 = "http://localhost:-1/test1";
+		String s7 = "http://localhost:80/../";
+
+		if(url2.isValid(s5) != true){
+			System.out.println("http://localhost:80/test1 failed");
+		}
+		if(url2.isValid(s6) != false){
+			System.out.println("http:/localhost:-1/test1 should have failed and didn't");
+		}
+		if(url2.isValid(s7)!= false){
+			System.out.println("http://localhost:80/../ should have failed and didn't");
+		}
+
 }
    //You need to create more test cases for your Partitions if you need to 
    
